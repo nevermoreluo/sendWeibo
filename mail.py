@@ -6,7 +6,7 @@ thx:frokaikan and liaoxuefeng
 http://www.liaoxuefeng.com/
 别人那里抄的 廖雪峰官网有写 所以我就不写注释了
 '''
-
+from config import Title
 from email.mime.text import MIMEText
 from email.mime.base import MIMEBase
 from email.mime.multipart import MIMEMultipart
@@ -38,7 +38,7 @@ class Mail:
         name,addr=parseaddr(s)
         return formataddr((Header(name,'utf-8').encode(),addr))
     
-    def make_message(self,Content,Type='plain',Subject='Photo Mail',Base=None):
+    def make_message(self,Content,Type='plain',Subject=Title,Base=None):
         if not Base:
             self.msg=MIMEText(Content,Type,'utf-8')
         else:
